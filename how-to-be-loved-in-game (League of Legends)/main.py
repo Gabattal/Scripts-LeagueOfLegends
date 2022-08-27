@@ -43,10 +43,10 @@ def show_mastery():
 
 while 1:
     myScreenshot = pyautogui.screenshot(region=(screenWidth - 258, 0, 60, 30))
-    myScreenshot.save(r'C:\Users\gab-a\OneDrive\Bureau\screenLoL\score.png')
+    myScreenshot.save(r'C:\Users\gab-a\OneDrive\Bureau\Jokes-script\scripts\how-to-be-loved-in-game (League of Legends)\screenshot')
     keyboard = Controller()
 
-    img = cv2.imread(r'C:\Users\gab-a\OneDrive\Bureau\screenLoL\score.png')
+    img = cv2.imread(r'C:\Users\gab-a\OneDrive\Bureau\Jokes-script\scripts\how-to-be-loved-in-game (League of Legends)\screenshot')
 
     kernel = np.ones((2, 1), np.uint8)
     img = cv2.dilate(img, kernel, iterations=1)
