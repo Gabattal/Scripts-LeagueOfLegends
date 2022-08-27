@@ -12,5 +12,5 @@ Depending on if I die or if I kill someone, the script will write a sentence for
 
 ## How do you use it ?
 
-You can use it by executing the code, install the statements and change the path of the screenshot folder.
+You can use it by installing the statements, changing the path of the screenshot folder and executing the code.
 Now you are free to go ! :D
