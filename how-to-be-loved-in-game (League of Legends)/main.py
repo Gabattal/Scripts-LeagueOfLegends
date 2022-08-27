@@ -8,8 +8,8 @@ import time
 from pynput.keyboard import Key, Controller
 
 screenWidth, screenHeight = pyautogui.size()
-i_killed = ["get rekt", "sit", "bark bark", "dog"]
-i_died = ["report my team", "fcking trash champ", "get a life", "ff15"]
+i_killed = ["Thank you for the golds", "haha I'm better than you", "I love you", "how do you feel after I just destroyed you?"]
+i_died = ["report my team", "your charachter is for noobs.", "get a life", "ff15"]
 kills = 0
 deaths = 0
 
