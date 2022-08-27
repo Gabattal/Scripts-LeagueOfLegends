@@ -4,7 +4,7 @@
 
 By using OCR (Optical Character Recognition) I'm able to detect when my score in game changes.
 
-![image](https://user-images.githubusercontent.com/26858750/187040061-ed5e0d9f-37ed-4371-8922-93e43ab4bf9c.png)
+![image](https://user-images.githubusercontent.com/26858750/187040634-245c7b01-b43e-4bcd-911c-67f81392691a.png)
 
 Depending on if I die or if I kill someone, the script will write a sentence for me. Here is an exemple when I die :
 
