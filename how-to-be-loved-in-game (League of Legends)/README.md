@@ -1,4 +1,4 @@
-# How to be loved in game in game (League of Legends)
+# How to be loved in game (League of Legends)
 
 ## The concept
 
