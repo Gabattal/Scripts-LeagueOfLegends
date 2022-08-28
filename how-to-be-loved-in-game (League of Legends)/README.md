@@ -12,5 +12,5 @@ Depending on if I die or if I kill someone, the script will write a sentence for
 
 ## How do you use it ?
 
-You can use it by installing the statements, changing the path of the screenshot folder / tesseract and executing the code.
+You can use it by installing the packages, changing the path of the screenshot folder / tesseract and executing the code.
 Now you are free to go ! :D
