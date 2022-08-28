@@ -67,15 +67,16 @@ while 1:
     out_below = pytesseract.image_to_string(img)
     test = out_below.split('/')
 
-    new_kills = int(test[0])
-    new_deaths = int(test[1])
-    if new_kills > kills:
-        kills = new_kills
-        show_mastery()
-        send_message(i_killed[randint(0, len(i_killed) - 1)])
+    if score[0].isdigit() and score[1].isdigit():
+        new_kills = int(score[0])
+        new_deaths = int(score[1])
+        if new_kills > kills:
+            kills = new_kills
+            show_mastery()
+            send_message(i_killed[randint(0, len(i_killed) - 1)])
 
-    if new_deaths > deaths:
-        deaths = new_deaths
-        surrender()
-        send_message(i_died[randint(0, len(i_died) - 1)])
+        if new_deaths > deaths:
+            deaths = new_deaths
+            surrender()
+            send_message(i_died[randint(0, len(i_died) - 1)])
     time.sleep(0.5)
