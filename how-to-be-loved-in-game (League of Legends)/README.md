@@ -19,5 +19,6 @@ You just have to install the packages and put your pseudo here
  try:
         response_API = requests.get('https://127.0.0.1:2999/liveclientdata/playerscores?summonerName=YOUR_PSEUDO_HERE',
                                      verify=False)
+```
 
 Also, feel free to add your favorite sentences ;)
