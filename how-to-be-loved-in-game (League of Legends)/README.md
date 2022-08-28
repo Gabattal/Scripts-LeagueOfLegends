@@ -2,9 +2,9 @@
 
 ## The concept
 
-By using OCR (Optical Character Recognition) I'm able to detect when my score in game changes.
+By using the live client I'm able to detect when I kill or die in game.
 
-![image](https://user-images.githubusercontent.com/26858750/187040634-245c7b01-b43e-4bcd-911c-67f81392691a.png)
+![image](https://user-images.githubusercontent.com/26858750/187098626-f514492e-e675-459d-9a0b-5bc582e8bdd5.png)
 
 Depending on if I die or if I kill someone, the script will write a sentence for me. Here is an exemple when I die :
 
@@ -12,5 +12,12 @@ Depending on if I die or if I kill someone, the script will write a sentence for
 
 ## How do you use it ?
 
-You can use it by installing the packages, changing the path of the screenshot folder / tesseract and executing the code.
-Now you are free to go ! :D
+You just have to install the packages and put your pseudo here
+
+
+```python
+ try:
+        response_API = requests.get('https://127.0.0.1:2999/liveclientdata/playerscores?summonerName=YOUR_PSEUDO_HERE',
+                                     verify=False)
+
+```python
