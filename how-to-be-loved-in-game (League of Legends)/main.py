@@ -5,6 +5,10 @@ import requests
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+<<<<<<< HEAD
+=======
+screenWidth, screenHeight = pyautogui.size()
+>>>>>>> 1a1bd9f9b907da0c72fbada4238030f16a92171f
 i_killed = ["/all Thank you for the golds", "/all haha I'm better than you",
             "/all how do you feel after I just destroyed you?", "/all sit", "/all get rekt", "/all I feel your pain",
             "/all EZ clapped", "/all I'm not arrogant, I'm good",
@@ -60,14 +64,36 @@ while 1:
         new_kills = statistics['kills']
         new_deaths = statistics['deaths']
 
+<<<<<<< HEAD
+=======
+    img = cv2.imread(r'C:\Users\gab-a\OneDrive\Bureau\Jokes-script\scripts\how-to-be-loved-in-game (League of Legends)\screenshot')
+
+    kernel = np.ones((2, 1), np.uint8)
+    img = cv2.dilate(img, kernel, iterations=1)
+    pytesseract.pytesseract.tesseract_cmd = r'D:\Users\gab-a\AppData\Local\Tesseract-OCR\tesseract.exe'
+    out_below = pytesseract.image_to_string(img)
+    test = out_below.split('/')
+
+    if score[0].isdigit() and score[1].isdigit():
+        new_kills = int(score[0])
+        new_deaths = int(score[1])
+>>>>>>> 1a1bd9f9b907da0c72fbada4238030f16a92171f
         if new_kills > kills:
             kills = new_kills
             show_mastery()
             send_message(i_killed[randint(0, len(i_killed) - 1)])
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1a1bd9f9b907da0c72fbada4238030f16a92171f
         if new_deaths > deaths:
             deaths = new_deaths
             surrender()
             send_message(i_died[randint(0, len(i_died) - 1)])
+<<<<<<< HEAD
         time.sleep(1)
     except:
         print("An exception occurred")
+=======
+    time.sleep(0.5)
+>>>>>>> 1a1bd9f9b907da0c72fbada4238030f16a92171f
