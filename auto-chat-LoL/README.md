@@ -1,4 +1,4 @@
-# Auto-chat(League of Legends)
+# Auto-chat (League of Legends)
 
 ## The concept
 
