@@ -36,6 +36,7 @@ i_died = ["/all report my team",
           "My push-up bra supports better than you"]
 
 deaths = 0
+kills = 0
 
 
 def send_message(message):
