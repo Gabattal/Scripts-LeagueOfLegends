@@ -14,3 +14,10 @@ Depending on if I die or if I kill someone, the script will write a sentence for
 
 You just need python installed on your computer, and you execute the launch.bat.
 Feel free to modify the sentences in the txt files.
+
+## Be careful
+
+Not because it is a script but depending of what you re putting you may get a little surprise :
+
+![image](https://user-images.githubusercontent.com/26858750/187932075-408e67ed-aaee-48c3-87f9-61a778835166.png)
+
