@@ -24,19 +24,6 @@ for line in bans_file:
 music_url = open("music.txt", "r").readline()
 
 
-class Video(object):
-    def __init__(self, path):
-        self.path = path
-
-    def play(self):
-        from os import startfile
-        startfile(self.path)
-
-
-class MovieMP4(Video):
-    type = "MP4"
-
-
 def in_lobby():
     screen_lobby = pyautogui.screenshot(region=(580, 190, 70, 30))
     screen_lobby.save(r'./screen.png')
@@ -113,7 +100,6 @@ def ban_champion():
             ban_number += 1
             if 'BAN A CHAMPION!' not in screen_ban_text:
                 has_banned = True
-                print('yo')
             else:
                 pyautogui.click(1000, 570)
             time.sleep(1)
