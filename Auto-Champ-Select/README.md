@@ -1,4 +1,4 @@
-# Auto-Select (League of Legends)
+# Auto-Champ-Select (League of Legends) Draft / Ranked
 
 # The concept
 
@@ -27,7 +27,11 @@ In the end you should have something like that :
 PS : Order in the files is important, for example in this case :
 ![image](https://user-images.githubusercontent.com/26858750/188025339-2d1f0245-c3f1-4275-8165-46b53c66dbe4.png) <br>
 If Yone and Jax are banned, it will pick Aatrox.
-* You execute the launch.bat
+* You execute the launch.bat 
+## Step 4 :
+* You pick your roles, and you start searching for a game.
+* You take a nap, you call your grandmother to check up on her, you kill these f*cking mosquitoes around you
+* You play :)
 
 
 # Concerning the runes
