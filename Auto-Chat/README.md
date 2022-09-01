@@ -12,7 +12,7 @@ Depending on if I die or if I kill someone, the script will write a sentence for
 
 ## How do you use it ?
 
-You just need python installed on your computer, and you execute the launch.bat.
+* You just need to install **[Python](https://www.python.org/)** on your computer, and you execute the launch.bat.
 Feel free to modify the sentences in the txt files.
 
 ## Be careful
