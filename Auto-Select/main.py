@@ -5,7 +5,7 @@ import pytesseract
 import pyautogui
 import webbrowser
 
-pytesseract.pytesseract.tesseract_cmd = r'./utils/Tesseract-OCR/tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = r'./Tesseract-OCR/tesseract.exe'
 screenWidth, screenHeight = pyautogui.size()
 keyboard = Controller()
 picks = []
