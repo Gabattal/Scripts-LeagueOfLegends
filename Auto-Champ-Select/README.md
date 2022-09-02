@@ -1,4 +1,6 @@
-# Auto-Champ-Select (League of Legends) Draft / Ranked
+# Auto-Champ-Select : Draft / Ranked
+
+**Video demonstration > [Here](https://youtu.be/S81REcoEk_s) <**
 
 # The concept
 
@@ -39,5 +41,6 @@ Depending on the pick you may need different runes, in my case I am using the [P
 which automatically import the right runes for your champion.
 
 # Problems you can encounter
+* it works only if you have the game in English and you didn't change the size of the lobby's window.
 * If you can't execute the installation of the Tesseract-OCR, just rename the file and remove the .dll
 * Make sure that you have the autoplay activated on YouTube otherwise the music won't start.

@@ -1,4 +1,6 @@
-# Auto-chat (League of Legends)
+# Auto-chat (Approved by Riot's developers)
+
+**Video demonstration > [Here](https://youtu.be/5B9cNtabQNM) <**
 
 ## The concept
 
