@@ -1,6 +1,6 @@
 # Auto-Champ-Select : Draft / Ranked
 
-**Video demonstration > [Here](https://youtu.be/S81REcoEk_s) <**
+**Video demonstration > [Here](https://youtu.be/S81REcoEk_s)**
 
 # The concept
 
