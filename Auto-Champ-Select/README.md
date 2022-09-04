@@ -31,3 +31,11 @@ Also make sure you write the name of the champion you want to play exactly like 
 # Concerning the runes
 Depending on the pick you may need different runes, in my case I am using the [Porofessor App](https://porofessor.gg/) 
 which automatically import the right runes for your champion.
+
+# this project is not finished
+I'm adding new features when I have some time, I'm planning to add :
+* a user interface
+* a notification system with your phone to tell you the "state" of the game
+* a feature that detects your role and allows you to plan backup picks
+* a feature which allows you to select the summoners you want for each champ
+* a feature which will detect if you are playing against an AD or an AP and will change your runes accordingly
