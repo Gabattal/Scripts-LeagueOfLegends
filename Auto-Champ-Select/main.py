@@ -1,148 +1,95 @@
 import time
-from pynput.keyboard import Key, Controller
-import cv2
-import pytesseract
-import pyautogui
+import requests
+import urllib3
+from lcu_driver import Connector
 import webbrowser
 
-pytesseract.pytesseract.tesseract_cmd = r'./Tesseract-OCR/tesseract.exe'
-screenWidth, screenHeight = pyautogui.size()
-keyboard = Controller()
-picks = []
-bans = []
-has_banned = False
-has_picked = False
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-picks_file = open("picks.txt", "r").read().splitlines()
-for line in picks_file:
-    picks.append(line)
+in_game = False
 
-bans_file = open("bans.txt", "r").read().splitlines()
-for line in bans_file:
-    bans.append(line)
-
-music_url = open("music.txt", "r").readline()
+connector = Connector()
 
 
-def in_lobby():
-    screen_lobby = pyautogui.screenshot(region=(580, 190, 70, 30))
-    screen_lobby.save(r'./screen.png')
-    img_screen_lobby = cv2.imread(r'./screen.png')
-    screen_lobby_text = pytesseract.image_to_string(img_screen_lobby)
-    if 'HOME' in screen_lobby_text:
-        return False
-    else:
-        return True
+@connector.ready
+async def connect(connection):
+    global summoner_id, champions_map
+    temp_champions_map = {}
+    summoner = await connection.request('get', '/lol-summoner/v1/current-summoner')
+    summoner_to_json = await summoner.json()
+    summoner_id = summoner_to_json['summonerId']
+    champion_list = await connection.request('get', f'/lol-champions/v1/inventories/{summoner_id}/champions-minimal')
+
+    champion_list_to_json = await champion_list.json()
+    for i in range(len(champion_list_to_json)):
+        temp_champions_map.update({champion_list_to_json[i]['name']: champion_list_to_json[i]['id']})
+    champions_map = temp_champions_map
 
 
-def in_game():
-    screen_score = pyautogui.screenshot(region=(1662, 0, 60, 30))
-    screen_score.save(r'./screen.png')
-    img_screen_score = cv2.imread(r'./screen.png')
-    screen_score_text = pytesseract.image_to_string(img_screen_score)
-    if '0/0/0' in screen_score_text:
-        return True
-    else:
-        return False
+@connector.ws.register('/lol-matchmaking/v1/ready-check', event_types=('UPDATE',))
+async def ready_check_changed(connection, event):
+    if event.data['state'] == 'InProgress' and event.data['playerResponse'] == 'None':
+        await connection.request('post', '/lol-matchmaking/v1/ready-check/accept', data={})
 
 
-def accept_match():
-    while not in_lobby() and not in_game():
-        print('accept match')
-        screen_accept = pyautogui.screenshot(region=(900, 710, 130, 30))
-        screen_accept.save(r'./screen.png')
-        img_screen_accept = cv2.imread(r'./screen.png')
-        screen_accept_text = pytesseract.image_to_string(img_screen_accept)
-        global has_banned, has_picked
-        has_banned = False
-        has_picked = False
-        if 'ACCEPT!' in screen_accept_text:
-            pyautogui.click(950, 720)
-        time.sleep(1)
-
-
-def prepick():
-    has_prepicked = False
-    while not has_prepicked and in_lobby() and not in_game():
-        print("prepick")
-        time.sleep(10)
-        pyautogui.click(1100, 265)
-        keyboard.type(picks[0])
-        has_prepicked = True
-        time.sleep(1)
-        pyautogui.click(700, 330)
-
-
-def ban_champion():
-    ban_number = 0
-    global has_banned
-    while not has_banned and in_lobby() and not in_game():
-        print('ban match')
-        screen_search = pyautogui.screenshot(region=(730, 160, 460, 50))
-        screen_search.save(r'./screen.png')
-        img_screen_search = cv2.imread(r'./screen.png')
-        screen_search_text = pytesseract.image_to_string(img_screen_search)
-        if 'BAN A CHAMPION!' in screen_search_text and not has_banned:
-            pyautogui.click(1100, 265)
-            pyautogui.click(1100, 265)
-            keyboard.press(Key.delete)
-            keyboard.type(bans[ban_number])
-            time.sleep(1)
-            pyautogui.click(700, 330)
-            time.sleep(1)
-            pyautogui.click(950, 770)
-            time.sleep(2)
-
-            screen_ban = pyautogui.screenshot(region=(730, 160, 460, 50))
-            screen_ban.save(r'./screen.png')
-            img_screen_ban = cv2.imread(r'./screen.png')
-            screen_ban_text = pytesseract.image_to_string(img_screen_ban)
-            ban_number += 1
-            if 'BAN A CHAMPION!' not in screen_ban_text:
-                has_banned = True
-            else:
-                pyautogui.click(1000, 570)
-            time.sleep(1)
-
-
-def pick_champion():
+@connector.ws.register('/lol-champ-select/v1/session', event_types=('CREATE', 'UPDATE',))
+async def champ_select_changed(connection, event):
+    picks = []
+    bans = []
     pick_number = 0
-    global has_picked
-    while not has_picked and in_lobby() and not in_game() and has_banned:
-        print('pick champ')
-        screen_search = pyautogui.screenshot(region=(730, 160, 460, 50))
-        screen_search.save(r'./screen.png')
-        img_screen_search = cv2.imread(r'./screen.png')
-        screen_search_text = pytesseract.image_to_string(img_screen_search)
-        if 'CHOOSE YOUR CHAMPION!' in screen_search_text and not has_picked:
-            pyautogui.click(1100, 265)
-            keyboard.type(picks[pick_number])
-            time.sleep(1)
-            pyautogui.click(700, 330)
-            time.sleep(1)
-            pyautogui.click(950, 770)
+    ban_number = 0
+    global in_game
 
-            screen_pick = pyautogui.screenshot(region=(730, 160, 460, 60))
-            screen_pick.save(r'./screen.png')
-            img_screen_pick = cv2.imread(r'./screen.png')
-            screen_pick_text = pytesseract.image_to_string(img_screen_pick)
+    picks_file = open("picks.txt", "r").read().splitlines()
+    for line in picks_file:
+        picks.append(line)
+
+    bans_file = open("bans.txt", "r").read().splitlines()
+    for line in bans_file:
+        bans.append(line)
+
+    phase = event.data['actions'][-1][0]['type']
+    action_id = event.data['actions'][-1][0]['id']
+    is_in_progress = event.data['actions'][-1][0]['isInProgress']
+
+    while phase == 'ban':
+        try:
+            await connection.request('patch', '/lol-champ-select/v1/session/actions/%d' % action_id,
+                                     data={"championId": champions_map[bans[ban_number]], "completed": False})
+            break
+        except (Exception,):
+            ban_number += 1
+    while phase == 'pick':
+        try:
+            await connection.request('patch', '/lol-champ-select/v1/session/actions/%d' % action_id,
+                                     data={"championId": champions_map[picks[pick_number]], "completed": True})
+            break
+        except (Exception,):
             pick_number += 1
-            if 'CHOOSE YOUR CHAMPION!' not in screen_pick_text:
-                has_picked = True
-            else:
-                pyautogui.click(1100, 265)
-                pyautogui.click(1100, 265)
-                keyboard.press(Key.delete)
-            time.sleep(1)
+
+    if not is_in_progress:
+        while not in_game:
+            try:
+                request_pseudo = requests.get('https://127.0.0.1:2999/liveclientdata/activeplayername', verify=False)
+                your_pseudo = request_pseudo.json()
+                response_API = requests.get(
+                    f'https://127.0.0.1:2999/liveclientdata/playerscores?summonerName={your_pseudo}',
+                    verify=False)
+                if request_pseudo and response_API and not in_game:
+                    print("Game found!")
+                    in_game = True
+                    music_url = open("music.txt", "r").readline()
+                    webbrowser.open(music_url, new=0, autoraise=True)
+                time.sleep(1)
+            except (Exception,):
+                print('Waiting for game to start...')
+                time.sleep(1)
 
 
-def execute():
-    while not in_game():
-        accept_match()
-        prepick()
-        ban_champion()
-        pick_champion()
-    webbrowser.open(music_url, new=0, autoraise=True)
+@connector.close
+async def disconnect(_):
+    print('The client have been closed!')
+    await connector.stop()
 
 
-execute()
+connector.start()
