@@ -1,4 +1,4 @@
-# Auto-Champ-Select : Draft / Ranked
+# Auto-Champ-Select-OCR : Draft / Ranked
 
 # The concept
 By using OCR (Optical Character Recognition), the script is able to :
