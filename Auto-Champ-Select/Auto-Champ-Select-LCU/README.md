@@ -14,7 +14,7 @@ By using the live client Data and the League Client Update:
 * You need to install **[Python](https://www.python.org/)** on your computer
 ## Step 2 :
 * You modify the txt files to fill the data you want (picks, bans and the music that will be launched once the game start) <br>
-PS : Order in the files is important, for example in this case :
+PS : Order in the files is important, for example in this case :<br>
 ![image](https://user-images.githubusercontent.com/26858750/188025339-2d1f0245-c3f1-4275-8165-46b53c66dbe4.png) <br>
 If Yone and Jax are banned, it will pick Aatrox.
 Also make sure you write the name of the champion you want to play exactly like in game, for example you have to write "LeBlanc" and not "leblanc".
