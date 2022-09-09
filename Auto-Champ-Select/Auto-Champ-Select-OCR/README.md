@@ -19,7 +19,7 @@ The script pays attention to your allies' picks and will not ban their champion
 * Once this is done you should find the folder in a path that looks like  : <br/> 
 ```<C:\Users\<Username>\AppData\Local\Tesseract-OCR``` <br>
 Take this folder and put it in the script. <br>
-In the end you should have something like that :
+In the end you should have something like that :<br>
 ![image](https://user-images.githubusercontent.com/26858750/188023950-a5b231b5-c53a-4728-b9ff-0f0b60c1fb7f.png) <br>
 ## Step 3 :
 * You modify the txt files to fill the data you want (picks, bans and the music that will be launched once the game start) <br>
