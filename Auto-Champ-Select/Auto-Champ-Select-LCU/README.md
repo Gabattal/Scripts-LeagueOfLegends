@@ -1,7 +1,5 @@
 # Auto-Champ-Select : Draft / Ranked
 
-**Video demonstration > [Here](https://youtu.be/S81REcoEk_s)**
-
 # The concept
 
 By using the live client Data and the League Client Update:
