@@ -23,7 +23,7 @@ In the end you should have something like that :<br>
 ![image](https://user-images.githubusercontent.com/26858750/188023950-a5b231b5-c53a-4728-b9ff-0f0b60c1fb7f.png) <br>
 ## Step 3 :
 * You modify the txt files to fill the data you want (picks, bans and the music that will be launched once the game start) <br>
-PS : Order in the files is important, for example in this case :
+PS : Order in the files is important, for example in this case : <br>
 ![image](https://user-images.githubusercontent.com/26858750/188025339-2d1f0245-c3f1-4275-8165-46b53c66dbe4.png) <br>
 If Yone and Jax are banned, it will pick Aatrox.
 * You execute the launch.bat 
