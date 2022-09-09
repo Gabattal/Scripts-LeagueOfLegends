@@ -1,3 +1,6 @@
+# Auto-Champ-Select : Draft / Ranked
+
+# The concept
 By using OCR (Optical Character Recognition), the script is able to :
 * Accept your match
 * Prepick the champion you want
