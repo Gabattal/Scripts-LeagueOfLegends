@@ -1,4 +1,4 @@
-# Auto-Champ-Select : Draft / Ranked
+# Auto-Champ-Select-LCU : Draft / Ranked
 
 # The concept
 
