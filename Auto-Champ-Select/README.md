@@ -1,33 +1,20 @@
-# Auto-Champ-Select : Draft / Ranked
+# Auto-Champ-Select
 
-**Video demonstration > [Here](https://youtu.be/S81REcoEk_s)**
+As you can see there are two files here. Each contains a script that uses a different technique :
 
-# The concept
+### Auto-Champ-Select-LCU
 
-By using the live client Data and the League Client Update:
-* Accept your match
-* Prepick the champion you want
-* Ban the champion you want
-* Pick the champion you want
-* Alert you when your game started
+This script uses the League Client Update : it will send request to the server to execute every action, this will work
+regardless of your window size or language. However, it works less well than the script using OCR in the sense that it
+doesn't pay attention to allied picks and the prepick doesn't work ( I plan to fix these bugs as soon as I have the
+opportunity )
 
-# How do you use it ?
+### Auto-Champ-Select-OCR
 
-## Step 1 :
-* You need to install **[Python](https://www.python.org/)** on your computer
-## Step 2 :
-* You modify the txt files to fill the data you want (picks, bans and the music that will be launched once the game start) <br>
-PS : Order in the files is important, for example in this case :
-![image](https://user-images.githubusercontent.com/26858750/188025339-2d1f0245-c3f1-4275-8165-46b53c66dbe4.png) <br>
-If Yone and Jax are banned, it will pick Aatrox.
-Also make sure you write the name of the champion you want to play exactly like in game, for example you have to write "LeBlanc" and not "leblanc".
-* You execute the launch.bat 
-## Step 3 :
-* You pick your roles, and you start searching for a game.
-* You take a nap, you call your grandmother to check up on her, you kill these f*cking mosquitoes around you
-* You play :)
+This scripts uses the Optical Character Recognition : it will take screenshots at specific locations to determine what
+phase you are in, then it will simulate clicks and keyboard keys to execute every action. Currently, it only works if
+you have the default size of the window's client and have the game in English (I can also add the language of your
+choice if
+you open an issue.)
 
-
-# Concerning the runes
-Depending on the pick you may need different runes, in my case I am using the [Porofessor App](https://porofessor.gg/) 
-which automatically import the right runes for your champion.
+You can find a detailed readme in each file.
