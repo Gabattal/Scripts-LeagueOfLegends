@@ -1,4 +1,3 @@
-Udyr
-Lillia
-Darius
+Mord
+Kayle
 Shaco
